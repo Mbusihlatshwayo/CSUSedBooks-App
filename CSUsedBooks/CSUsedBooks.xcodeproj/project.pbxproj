@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC03323B1AC8FB4B00ADC81E /* MailboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03323A1AC8FB4B00ADC81E /* MailboxViewController.swift */; };
+		CC03323D1AC9072900ADC81E /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03323C1AC9072900ADC81E /* MessageCell.swift */; };
+		CC03323F1AC9D77C00ADC81E /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03323E1AC9D77C00ADC81E /* MailViewController.swift */; };
+		CC0332411AC9E63000ADC81E /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0332401AC9E63000ADC81E /* ReplyViewController.swift */; };
+		CC0332471ACA2F6300ADC81E /* emptyman.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0332461ACA2F6300ADC81E /* emptyman.png */; };
+		CC43F6F91ABE58FB00B67B20 /* cellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC43F6F81ABE58FB00B67B20 /* cellItem.swift */; };
+		CC8956981AC5014B0069CE15 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8956971AC5014B0069CE15 /* FBSDKLoginKit.framework */; };
+		CC89569A1AC5017A0069CE15 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8956991AC5017A0069CE15 /* FBSDKCoreKit.framework */; };
+		CC99850A1AC678320022156B /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9985091AC678320022156B /* ParseFacebookUtils.framework */; };
+		CC99850E1AC6809D0022156B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC99850D1AC6809D0022156B /* FacebookSDK.framework */; };
+		CC9BA7211ABD3564005EACE7 /* book1.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9BA7201ABD3564005EACE7 /* book1.png */; };
+		CCADBDFE1AD8513900C0D7EE /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCADBDFD1AD8513900C0D7EE /* Launch Screen.xib */; };
+		CCADBE001AD8565F00C0D7EE /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = CCADBDFF1AD8565F00C0D7EE /* Background.png */; };
+		CCCFC0151AB96DA80053FBC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCFC0141AB96DA80053FBC1 /* AppDelegate.swift */; };
+		CCCFC0171AB96DA80053FBC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCFC0161AB96DA80053FBC1 /* ViewController.swift */; };
+		CCCFC01A1AB96DA80053FBC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCCFC0181AB96DA80053FBC1 /* Main.storyboard */; };
+		CCCFC01C1AB96DA80053FBC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCCFC01B1AB96DA80053FBC1 /* Images.xcassets */; };
+		CCCFC02B1AB96DA80053FBC1 /* CSUsedBooksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCFC02A1AB96DA80053FBC1 /* CSUsedBooksTests.swift */; };
+		CCCFC0361AB96DE90053FBC1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC0341AB96DE90053FBC1 /* Bolts.framework */; };
+		CCCFC0371AB96DE90053FBC1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC0351AB96DE90053FBC1 /* Parse.framework */; };
+		CCCFC0391AB96E3D0053FBC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC0381AB96E3D0053FBC1 /* AudioToolbox.framework */; };
+		CCCFC03B1AB96E410053FBC1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC03A1AB96E410053FBC1 /* CFNetwork.framework */; };
+		CCCFC03D1AB96E4D0053FBC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC03C1AB96E4D0053FBC1 /* CoreGraphics.framework */; };
+		CCCFC03F1AB96E540053FBC1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC03E1AB96E540053FBC1 /* CoreLocation.framework */; };
+		CCCFC0411AB96E610053FBC1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC0401AB96E610053FBC1 /* MobileCoreServices.framework */; };
+		CCCFC0431AB96E6B0053FBC1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC0421AB96E6B0053FBC1 /* QuartzCore.framework */; };
+		CCCFC0451AB96E760053FBC1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC0441AB96E760053FBC1 /* Security.framework */; };
+		CCCFC0471AB96E810053FBC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC0461AB96E810053FBC1 /* StoreKit.framework */; };
+		CCCFC0491AB96E8D0053FBC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC0481AB96E8D0053FBC1 /* SystemConfiguration.framework */; };
+		CCCFC04B1AB96EC10053FBC1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC04A1AB96EC10053FBC1 /* libz.dylib */; };
+		CCCFC04D1AB96EF80053FBC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCFC04C1AB96EF80053FBC1 /* libsqlite3.dylib */; };
+		CCCFC0571AB98EDD0053FBC1 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCFC0561AB98EDD0053FBC1 /* facebook.png */; };
+		CCCFC0961ABABE700053FBC1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCFC0951ABABE700053FBC1 /* HomeViewController.swift */; };
+		CCCFC0981ABACBA50053FBC1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCFC0971ABACBA50053FBC1 /* ProfileViewController.swift */; };
+		CCD714E91AC39A4300D1C3C7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD714E81AC39A4300D1C3C7 /* TableViewController.swift */; };
+		CCE457B31AC6A2EF009A9037 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE457B21AC6A2EF009A9037 /* PhotoViewController.swift */; };
+		CCE457B51AC8E344009A9037 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE457B41AC8E344009A9037 /* MessageViewController.swift */; };
+		CCEBBDD01ABD341B0025191A /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEBBDCF1ABD341B0025191A /* BooksViewController.swift */; };
+		CCF985D21AC1A56C004A58FA /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF985D11AC1A56C004A58FA /* SubjectsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CCCFC0251AB96DA80053FBC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCCFC0071AB96DA80053FBC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCCFC00E1AB96DA80053FBC1;
+			remoteInfo = CSUsedBooks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CC03323A1AC8FB4B00ADC81E /* MailboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailboxViewController.swift; sourceTree = "<group>"; };
+		CC03323C1AC9072900ADC81E /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		CC03323E1AC9D77C00ADC81E /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
+		CC0332401AC9E63000ADC81E /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
+		CC0332461ACA2F6300ADC81E /* emptyman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyman.png; sourceTree = "<group>"; };
+		CC43F6F81ABE58FB00B67B20 /* cellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellItem.swift; sourceTree = "<group>"; };
+		CC8956971AC5014B0069CE15 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		CC8956991AC5017A0069CE15 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		CC9985091AC678320022156B /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		CC99850D1AC6809D0022156B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		CC9BA7201ABD3564005EACE7 /* book1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book1.png; sourceTree = "<group>"; };
+		CCADBDFD1AD8513900C0D7EE /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		CCADBDFF1AD8565F00C0D7EE /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		CCCFC00F1AB96DA80053FBC1 /* CSUsedBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSUsedBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCCFC0131AB96DA80053FBC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCCFC0141AB96DA80053FBC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CCCFC0161AB96DA80053FBC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CCCFC0191AB96DA80053FBC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CCCFC01B1AB96DA80053FBC1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CCCFC0241AB96DA80053FBC1 /* CSUsedBooksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSUsedBooksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCCFC0291AB96DA80053FBC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCCFC02A1AB96DA80053FBC1 /* CSUsedBooksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSUsedBooksTests.swift; sourceTree = "<group>"; };
+		CCCFC0341AB96DE90053FBC1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		CCCFC0351AB96DE90053FBC1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		CCCFC0381AB96E3D0053FBC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CCCFC03A1AB96E410053FBC1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CCCFC03C1AB96E4D0053FBC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CCCFC03E1AB96E540053FBC1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CCCFC0401AB96E610053FBC1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CCCFC0421AB96E6B0053FBC1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CCCFC0441AB96E760053FBC1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CCCFC0461AB96E810053FBC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CCCFC0481AB96E8D0053FBC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CCCFC04A1AB96EC10053FBC1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CCCFC04C1AB96EF80053FBC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CCCFC04E1AB96F6B0053FBC1 /* CSUsedBooks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSUsedBooks-Bridging-Header.h"; sourceTree = "<group>"; };
+		CCCFC0551AB9899C0053FBC1 /* PoetsenOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoetsenOne-Regular.ttf"; sourceTree = "<group>"; };
+		CCCFC0561AB98EDD0053FBC1 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		CCCFC0951ABABE700053FBC1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CCCFC0971ABACBA50053FBC1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CCD714E81AC39A4300D1C3C7 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		CCE457B21AC6A2EF009A9037 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		CCE457B41AC8E344009A9037 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		CCEBBDCF1ABD341B0025191A /* BooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
+		CCF985D11AC1A56C004A58FA /* SubjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCCFC00C1AB96DA80053FBC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCCFC04D1AB96EF80053FBC1 /* libsqlite3.dylib in Frameworks */,
+				CCCFC04B1AB96EC10053FBC1 /* libz.dylib in Frameworks */,
+				CC99850E1AC6809D0022156B /* FacebookSDK.framework in Frameworks */,
+				CCCFC0491AB96E8D0053FBC1 /* SystemConfiguration.framework in Frameworks */,
+				CCCFC0471AB96E810053FBC1 /* StoreKit.framework in Frameworks */,
+				CC8956981AC5014B0069CE15 /* FBSDKLoginKit.framework in Frameworks */,
+				CCCFC0451AB96E760053FBC1 /* Security.framework in Frameworks */,
+				CCCFC0431AB96E6B0053FBC1 /* QuartzCore.framework in Frameworks */,
+				CCCFC0411AB96E610053FBC1 /* MobileCoreServices.framework in Frameworks */,
+				CCCFC03F1AB96E540053FBC1 /* CoreLocation.framework in Frameworks */,
+				CCCFC03D1AB96E4D0053FBC1 /* CoreGraphics.framework in Frameworks */,
+				CC89569A1AC5017A0069CE15 /* FBSDKCoreKit.framework in Frameworks */,
+				CCCFC03B1AB96E410053FBC1 /* CFNetwork.framework in Frameworks */,
+				CCCFC0391AB96E3D0053FBC1 /* AudioToolbox.framework in Frameworks */,
+				CCCFC0371AB96DE90053FBC1 /* Parse.framework in Frameworks */,
+				CC99850A1AC678320022156B /* ParseFacebookUtils.framework in Frameworks */,
+				CCCFC0361AB96DE90053FBC1 /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCCFC0211AB96DA80053FBC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CCCFC0061AB96DA80053FBC1 = {
+			isa = PBXGroup;
+			children = (
+				CCCFC0111AB96DA80053FBC1 /* CSUsedBooks */,
+				CCCFC0271AB96DA80053FBC1 /* CSUsedBooksTests */,
+				CCCFC0101AB96DA80053FBC1 /* Products */,
+				CCCFC04E1AB96F6B0053FBC1 /* CSUsedBooks-Bridging-Header.h */,
+			);
+			sourceTree = "<group>";
+		};
+		CCCFC0101AB96DA80053FBC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCCFC00F1AB96DA80053FBC1 /* CSUsedBooks.app */,
+				CCCFC0241AB96DA80053FBC1 /* CSUsedBooksTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCCFC0111AB96DA80053FBC1 /* CSUsedBooks */ = {
+			isa = PBXGroup;
+			children = (
+				CCCFC0181AB96DA80053FBC1 /* Main.storyboard */,
+				CCADBDFD1AD8513900C0D7EE /* Launch Screen.xib */,
+				CCCFC0141AB96DA80053FBC1 /* AppDelegate.swift */,
+				CCCFC0161AB96DA80053FBC1 /* ViewController.swift */,
+				CCCFC0951ABABE700053FBC1 /* HomeViewController.swift */,
+				CCCFC0971ABACBA50053FBC1 /* ProfileViewController.swift */,
+				CCEBBDCF1ABD341B0025191A /* BooksViewController.swift */,
+				CC43F6F81ABE58FB00B67B20 /* cellItem.swift */,
+				CC03323C1AC9072900ADC81E /* MessageCell.swift */,
+				CCF985D11AC1A56C004A58FA /* SubjectsViewController.swift */,
+				CCD714E81AC39A4300D1C3C7 /* TableViewController.swift */,
+				CCE457B21AC6A2EF009A9037 /* PhotoViewController.swift */,
+				CCE457B41AC8E344009A9037 /* MessageViewController.swift */,
+				CC0332401AC9E63000ADC81E /* ReplyViewController.swift */,
+				CC03323E1AC9D77C00ADC81E /* MailViewController.swift */,
+				CC03323A1AC8FB4B00ADC81E /* MailboxViewController.swift */,
+				CCCFC01B1AB96DA80053FBC1 /* Images.xcassets */,
+				CCCFC0121AB96DA80053FBC1 /* Supporting Files */,
+			);
+			path = CSUsedBooks;
+			sourceTree = "<group>";
+		};
+		CCCFC0121AB96DA80053FBC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CCADBDFF1AD8565F00C0D7EE /* Background.png */,
+				CC0332461ACA2F6300ADC81E /* emptyman.png */,
+				CC9BA7201ABD3564005EACE7 /* book1.png */,
+				CCCFC0561AB98EDD0053FBC1 /* facebook.png */,
+				CCCFC0551AB9899C0053FBC1 /* PoetsenOne-Regular.ttf */,
+				CCCFC04C1AB96EF80053FBC1 /* libsqlite3.dylib */,
+				CCCFC04A1AB96EC10053FBC1 /* libz.dylib */,
+				CC99850D1AC6809D0022156B /* FacebookSDK.framework */,
+				CC9985091AC678320022156B /* ParseFacebookUtils.framework */,
+				CC8956991AC5017A0069CE15 /* FBSDKCoreKit.framework */,
+				CC8956971AC5014B0069CE15 /* FBSDKLoginKit.framework */,
+				CCCFC0481AB96E8D0053FBC1 /* SystemConfiguration.framework */,
+				CCCFC0461AB96E810053FBC1 /* StoreKit.framework */,
+				CCCFC0441AB96E760053FBC1 /* Security.framework */,
+				CCCFC0421AB96E6B0053FBC1 /* QuartzCore.framework */,
+				CCCFC0401AB96E610053FBC1 /* MobileCoreServices.framework */,
+				CCCFC03E1AB96E540053FBC1 /* CoreLocation.framework */,
+				CCCFC03C1AB96E4D0053FBC1 /* CoreGraphics.framework */,
+				CCCFC03A1AB96E410053FBC1 /* CFNetwork.framework */,
+				CCCFC0381AB96E3D0053FBC1 /* AudioToolbox.framework */,
+				CCCFC0341AB96DE90053FBC1 /* Bolts.framework */,
+				CCCFC0351AB96DE90053FBC1 /* Parse.framework */,
+				CCCFC0131AB96DA80053FBC1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CCCFC0271AB96DA80053FBC1 /* CSUsedBooksTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCCFC02A1AB96DA80053FBC1 /* CSUsedBooksTests.swift */,
+				CCCFC0281AB96DA80053FBC1 /* Supporting Files */,
+			);
+			path = CSUsedBooksTests;
+			sourceTree = "<group>";
+		};
+		CCCFC0281AB96DA80053FBC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CCCFC0291AB96DA80053FBC1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCCFC00E1AB96DA80053FBC1 /* CSUsedBooks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCCFC02E1AB96DA80053FBC1 /* Build configuration list for PBXNativeTarget "CSUsedBooks" */;
+			buildPhases = (
+				CCCFC00B1AB96DA80053FBC1 /* Sources */,
+				CCCFC00C1AB96DA80053FBC1 /* Frameworks */,
+				CCCFC00D1AB96DA80053FBC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CSUsedBooks;
+			productName = CSUsedBooks;
+			productReference = CCCFC00F1AB96DA80053FBC1 /* CSUsedBooks.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CCCFC0231AB96DA80053FBC1 /* CSUsedBooksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCCFC0311AB96DA80053FBC1 /* Build configuration list for PBXNativeTarget "CSUsedBooksTests" */;
+			buildPhases = (
+				CCCFC0201AB96DA80053FBC1 /* Sources */,
+				CCCFC0211AB96DA80053FBC1 /* Frameworks */,
+				CCCFC0221AB96DA80053FBC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCCFC0261AB96DA80053FBC1 /* PBXTargetDependency */,
+			);
+			name = CSUsedBooksTests;
+			productName = CSUsedBooksTests;
+			productReference = CCCFC0241AB96DA80053FBC1 /* CSUsedBooksTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCCFC0071AB96DA80053FBC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Mbusi Hlatshwayo";
+				TargetAttributes = {
+					CCCFC00E1AB96DA80053FBC1 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 2K273P6V79;
+					};
+					CCCFC0231AB96DA80053FBC1 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = CCCFC00E1AB96DA80053FBC1;
+					};
+				};
+			};
+			buildConfigurationList = CCCFC00A1AB96DA80053FBC1 /* Build configuration list for PBXProject "CSUsedBooks" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CCCFC0061AB96DA80053FBC1;
+			productRefGroup = CCCFC0101AB96DA80053FBC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCCFC00E1AB96DA80053FBC1 /* CSUsedBooks */,
+				CCCFC0231AB96DA80053FBC1 /* CSUsedBooksTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCCFC00D1AB96DA80053FBC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCCFC01A1AB96DA80053FBC1 /* Main.storyboard in Resources */,
+				CC9BA7211ABD3564005EACE7 /* book1.png in Resources */,
+				CCCFC0571AB98EDD0053FBC1 /* facebook.png in Resources */,
+				CCADBE001AD8565F00C0D7EE /* Background.png in Resources */,
+				CC0332471ACA2F6300ADC81E /* emptyman.png in Resources */,
+				CCCFC01C1AB96DA80053FBC1 /* Images.xcassets in Resources */,
+				CCADBDFE1AD8513900C0D7EE /* Launch Screen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCCFC0221AB96DA80053FBC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCCFC00B1AB96DA80053FBC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC03323B1AC8FB4B00ADC81E /* MailboxViewController.swift in Sources */,
+				CCEBBDD01ABD341B0025191A /* BooksViewController.swift in Sources */,
+				CCCFC0171AB96DA80053FBC1 /* ViewController.swift in Sources */,
+				CCCFC0151AB96DA80053FBC1 /* AppDelegate.swift in Sources */,
+				CCCFC0981ABACBA50053FBC1 /* ProfileViewController.swift in Sources */,
+				CC03323D1AC9072900ADC81E /* MessageCell.swift in Sources */,
+				CCE457B51AC8E344009A9037 /* MessageViewController.swift in Sources */,
+				CC0332411AC9E63000ADC81E /* ReplyViewController.swift in Sources */,
+				CCF985D21AC1A56C004A58FA /* SubjectsViewController.swift in Sources */,
+				CCE457B31AC6A2EF009A9037 /* PhotoViewController.swift in Sources */,
+				CC03323F1AC9D77C00ADC81E /* MailViewController.swift in Sources */,
+				CC43F6F91ABE58FB00B67B20 /* cellItem.swift in Sources */,
+				CCD714E91AC39A4300D1C3C7 /* TableViewController.swift in Sources */,
+				CCCFC0961ABABE700053FBC1 /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCCFC0201AB96DA80053FBC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCCFC02B1AB96DA80053FBC1 /* CSUsedBooksTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCCFC0261AB96DA80053FBC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCCFC00E1AB96DA80053FBC1 /* CSUsedBooks */;
+			targetProxy = CCCFC0251AB96DA80053FBC1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CCCFC0181AB96DA80053FBC1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCCFC0191AB96DA80053FBC1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CCCFC02C1AB96DA80053FBC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CCCFC02D1AB96DA80053FBC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CCCFC02F1AB96DA80053FBC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CSUsedBooks",
+				);
+				INFOPLIST_FILE = CSUsedBooks/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CSUsedBooks-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CCCFC0301AB96DA80053FBC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CSUsedBooks",
+				);
+				INFOPLIST_FILE = CSUsedBooks/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CSUsedBooks-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		CCCFC0321AB96DA80053FBC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CSUsedBooksTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CSUsedBooks.app/CSUsedBooks";
+			};
+			name = Debug;
+		};
+		CCCFC0331AB96DA80053FBC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CSUsedBooksTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CSUsedBooks.app/CSUsedBooks";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCCFC00A1AB96DA80053FBC1 /* Build configuration list for PBXProject "CSUsedBooks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCCFC02C1AB96DA80053FBC1 /* Debug */,
+				CCCFC02D1AB96DA80053FBC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCCFC02E1AB96DA80053FBC1 /* Build configuration list for PBXNativeTarget "CSUsedBooks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCCFC02F1AB96DA80053FBC1 /* Debug */,
+				CCCFC0301AB96DA80053FBC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCCFC0311AB96DA80053FBC1 /* Build configuration list for PBXNativeTarget "CSUsedBooksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCCFC0321AB96DA80053FBC1 /* Debug */,
+				CCCFC0331AB96DA80053FBC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CCCFC0071AB96DA80053FBC1 /* Project object */;
+}
