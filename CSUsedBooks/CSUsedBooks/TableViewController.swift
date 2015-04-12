@@ -42,12 +42,12 @@ class TableViewController: UIViewController, UITableViewDelegate {
         
         // update the badge if the user has mail in the mailbox unred
         var tabArray = self.tabBarController?.tabBar.items as NSArray!
-        var tabItem = tabArray.objectAtIndex(1) as UITabBarItem
+        var tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
         
         var unreadQuery = PFQuery(className: "Message")
-        unreadQuery.whereKey("realToUser", equalTo: PFUser.currentUser().username)
+        unreadQuery.whereKey("realToUser", equalTo: PFUser.currentUser()!.username!)
         
-        unreadQuery.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        unreadQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             
             // set messages to read here
             
@@ -62,7 +62,7 @@ class TableViewController: UIViewController, UITableViewDelegate {
                         if (object["readStatus"] != nil) {
                             
                             var read = Bool()
-                            if (object["readStatus"] as String == "no") {
+                            if (object["readStatus"] as! String == "no") {
                                 
                                 unreadMessages.append("read")
                                 
@@ -89,7 +89,7 @@ class TableViewController: UIViewController, UITableViewDelegate {
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error.userInfo!)")
+                println("Error: \(error) \(error!.userInfo!)")
                 
             }
             
@@ -106,7 +106,7 @@ class TableViewController: UIViewController, UITableViewDelegate {
         //query.whereKey("playerName", equalTo:"Sean Plott")
         query.findObjectsInBackgroundWithBlock {
             
-            (objects: [AnyObject]!, error: NSError!) -> Void in
+            (objects, error) -> Void in
             
             if error == nil {
                 
@@ -119,19 +119,19 @@ class TableViewController: UIViewController, UITableViewDelegate {
                         if (object["imageFile"] != nil) {
                             
                             
-                            descriptions.append(object["Description"] as String)
+                            descriptions.append(object["Description"] as! String)
                         
-                            usernames.append(object["username"] as String)
+                            usernames.append(object["username"] as! String)
                         
-                            imageFiles.append(object["imageFile"] as PFFile)
+                            imageFiles.append(object["imageFile"] as! PFFile)
                             
-                            bookGUIDs.append(object["GUID"] as String)
+                            bookGUIDs.append(object["GUID"] as! String)
                             
-                            realUsernames.append(object["realUsername"] as String)
+                            realUsernames.append(object["realUsername"] as! String)
                             
-                            linkedIdArr.append(object.objectId as String)
+                            linkedIdArr.append(object.objectId! as String)
                             
-                            realFromUsernames.append(object["realUsername"] as String)
+                            realFromUsernames.append(object["realUsername"] as! String)
                             
                         }
                         
@@ -144,7 +144,7 @@ class TableViewController: UIViewController, UITableViewDelegate {
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error.userInfo!)")
+                println("Error: \(error) \(error!.userInfo!)")
                 
             }
         }
@@ -179,16 +179,16 @@ class TableViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: bookCell = self.myTableView.dequeueReusableCellWithIdentifier("prototype") as bookCell
+        var cell: bookCell = self.myTableView.dequeueReusableCellWithIdentifier("prototype") as! bookCell
         
         cell.allBooksDescription.text = descriptions[indexPath.row]
         cell.allBooksUsername.text = usernames[indexPath.row]
         
-        imageFiles[indexPath.row].getDataInBackgroundWithBlock { (imageData: NSData!, error: NSError!) -> Void in
+        imageFiles[indexPath.row].getDataInBackgroundWithBlock { (imageData, error) -> Void in
             
             if error == nil {
                 
-                var image = UIImage(data: imageData)!
+                var image = UIImage(data: imageData!)!
                 
                 cell.allBooksImage.image = image
                 
@@ -205,11 +205,11 @@ class TableViewController: UIViewController, UITableViewDelegate {
         
         selectedIndex = indexPath.row
         
-        imageFiles[selectedIndex].getDataInBackgroundWithBlock { (imageData: NSData!, error: NSError!) -> Void in
+        imageFiles[selectedIndex].getDataInBackgroundWithBlock { (imageData, error) -> Void in
             
             if (error == nil) {
                 
-                selectedPhoto = UIImage(data: imageData)!
+                selectedPhoto = UIImage(data: imageData!)!
                 
             }
             

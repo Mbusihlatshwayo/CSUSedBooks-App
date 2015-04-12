@@ -43,7 +43,7 @@ class MailboxViewController: UIViewController , UITableViewDelegate{
             
             subjectQuery.findObjectsInBackgroundWithBlock {
                 
-                (objects: [AnyObject]!, error: NSError!) -> Void in
+                (objects, error) -> Void in
                 
                 if error == nil {
                     
@@ -53,10 +53,10 @@ class MailboxViewController: UIViewController , UITableViewDelegate{
                         
                         for object in objects {
                             
-                            GUIDArr.append(object["GUID"] as String)
-                            messages.append(object["Text"] as String)
-                            fromUsernames.append(object["FromUser"] as String)
-                            realFromUsernames.append(object["realFromUser"] as String)
+                            GUIDArr.append(object["GUID"] as! String)
+                            messages.append(object["Text"] as! String)
+                            fromUsernames.append(object["FromUser"] as! String)
+                            realFromUsernames.append(object["realFromUser"] as! String)
                             self.messageTableView.reloadData()
                             
                         }
@@ -67,7 +67,7 @@ class MailboxViewController: UIViewController , UITableViewDelegate{
                 } else {
                     
                     // Log details of the failure
-                    println("Error: \(error) \(error.userInfo!)")
+                    println("Error: \(error) \(error!.userInfo!)")
                     
                 }
                 
@@ -75,11 +75,11 @@ class MailboxViewController: UIViewController , UITableViewDelegate{
             
         } else {
             
-            subjectQuery.whereKey("ToUser", equalTo: PFUser.currentUser().username)
+            subjectQuery.whereKey("ToUser", equalTo: PFUser.currentUser()!.username!)
             subjectQuery.orderByDescending("createdAt")
             subjectQuery.findObjectsInBackgroundWithBlock {
                 
-                (objects: [AnyObject]!, error: NSError!) -> Void in
+                (objects, error) -> Void in
                 
                 if error == nil {
                     
@@ -89,10 +89,10 @@ class MailboxViewController: UIViewController , UITableViewDelegate{
                         
                         for object in objects {
                             
-                            GUIDArr.append(object["GUID"] as String)
-                            messages.append(object["Text"] as String)
-                            fromUsernames.append(object["FromUser"] as String)
-                            realFromUsernames.append(object["realFromUser"] as String)
+                            GUIDArr.append(object["GUID"] as! String)
+                            messages.append(object["Text"] as! String)
+                            fromUsernames.append(object["FromUser"] as! String)
+                            realFromUsernames.append(object["realFromUser"] as! String)
                             self.messageTableView.reloadData()
                             
                         }
@@ -103,7 +103,7 @@ class MailboxViewController: UIViewController , UITableViewDelegate{
                 } else {
                     
                     // Log details of the failure
-                    println("Error: \(error) \(error.userInfo!)")
+                    println("Error: \(error) \(error!.userInfo!)")
                     
                 }
                 
@@ -144,7 +144,7 @@ class MailboxViewController: UIViewController , UITableViewDelegate{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:MessageCell = self.messageTableView.dequeueReusableCellWithIdentifier("messageCell") as MessageCell
+        var cell:MessageCell = self.messageTableView.dequeueReusableCellWithIdentifier("messageCell") as! MessageCell
         
         cell.fromUsername.text = fromUsernames[indexPath.row]
         cell.messageText.text = messages[indexPath.row]

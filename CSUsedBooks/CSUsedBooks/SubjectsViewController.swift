@@ -51,7 +51,7 @@ class SubjectsViewController: UIViewController {
         subjectQuery.whereKey("CourseSubject", equalTo: pickedSubject)
         subjectQuery.findObjectsInBackgroundWithBlock {
             
-            (objects: [AnyObject]!, error: NSError!) -> Void in
+            (objects, error) -> Void in
             
             if error == nil {
                 
@@ -61,17 +61,17 @@ class SubjectsViewController: UIViewController {
                     
                     for object in objects {
                         
-                        descriptions.append(object["Description"] as String)
+                        descriptions.append(object["Description"] as! String)
                         
-                        usernames.append(object["username"] as String)
+                        usernames.append(object["username"] as! String)
                         
-                        imageFiles.append(object["imageFile"] as PFFile)
+                        imageFiles.append(object["imageFile"] as! PFFile)
                         
-                        realUsernames.append(object["realUsername"] as String)
+                        realUsernames.append(object["realUsername"] as! String)
                         
-                        linkedIdArr.append(object.objectId as String)
+                        linkedIdArr.append(object.objectId! as String)
                         
-                        realFromUsernames.append(object["realUsername"] as String) //
+                        realFromUsernames.append(object["realUsername"] as! String) //
                         
                         self.myTableView.reloadData()
                         
@@ -92,7 +92,7 @@ class SubjectsViewController: UIViewController {
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error.userInfo!)")
+                println("Error: \(error) \(error!.userInfo!)")
                 
             }
             
@@ -118,12 +118,12 @@ class SubjectsViewController: UIViewController {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        imageFiles[selectedIndex].getDataInBackgroundWithBlock { (imageData: NSData!, error: NSError!) -> Void in
+        imageFiles[selectedIndex].getDataInBackgroundWithBlock { (imageData, error) -> Void in
             
             
             if (error == nil) {
                 
-                selectedPhoto = UIImage(data: imageData)!
+                selectedPhoto = UIImage(data: imageData!)!
                 
             }
             
@@ -135,16 +135,16 @@ class SubjectsViewController: UIViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: bookCell = tableView.dequeueReusableCellWithIdentifier("booksCells") as bookCell
+        var cell: bookCell = tableView.dequeueReusableCellWithIdentifier("booksCells") as! bookCell
         
         cell.subjectBookDescription.text = descriptions[indexPath.row]
         cell.subjectBookPosterUsername.text = usernames[indexPath.row]
         
-        imageFiles[indexPath.row].getDataInBackgroundWithBlock { (imageData: NSData!, error: NSError!) -> Void in
+        imageFiles[indexPath.row].getDataInBackgroundWithBlock { (imageData, error) -> Void in
             
             if error == nil {
                 
-                let image = UIImage(data: imageData)
+                let image = UIImage(data: imageData!)
                 
                 cell.subjectBookImage.image = image
                 

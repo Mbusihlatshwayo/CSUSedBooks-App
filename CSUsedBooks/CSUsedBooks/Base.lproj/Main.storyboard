@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -125,16 +125,16 @@
                             <constraint firstItem="rRm-6M-o7k" firstAttribute="top" secondItem="h4S-Th-QhD" secondAttribute="bottom" constant="13" id="7zb-LC-T5l"/>
                             <constraint firstAttribute="centerX" secondItem="h4S-Th-QhD" secondAttribute="centerX" id="C8H-BE-Cnk"/>
                             <constraint firstItem="QJO-dP-fU8" firstAttribute="top" secondItem="klN-mZ-kNg" secondAttribute="bottom" constant="8" id="CCZ-Gu-kwd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="51F-QX-Og9" secondAttribute="trailing" constant="-16" id="Cwe-pC-JMF"/>
+                            <constraint firstItem="51F-QX-Og9" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Hfd-ya-ina"/>
                             <constraint firstAttribute="centerX" secondItem="klN-mZ-kNg" secondAttribute="centerX" id="Idw-yG-jZa"/>
                             <constraint firstItem="N2k-ox-Gij" firstAttribute="leading" secondItem="rRm-6M-o7k" secondAttribute="trailing" constant="3" id="Nj7-4Y-P2U"/>
-                            <constraint firstItem="51F-QX-Og9" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="Tvz-W3-urZ"/>
                             <constraint firstAttribute="centerX" secondItem="rRm-6M-o7k" secondAttribute="centerX" id="XnO-mV-L2w"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="51F-QX-Og9" secondAttribute="bottom" id="a9o-ix-ptm"/>
-                            <constraint firstItem="51F-QX-Og9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="aKh-NF-n8T"/>
                             <constraint firstItem="0gk-0R-mTK" firstAttribute="top" secondItem="LUB-Hf-5W5" secondAttribute="bottom" constant="8" id="cJs-h6-Yu6"/>
                             <constraint firstItem="LUB-Hf-5W5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="dZu-P8-QnB"/>
+                            <constraint firstItem="51F-QX-Og9" firstAttribute="centerX" secondItem="h4S-Th-QhD" secondAttribute="centerX" id="e1c-aH-9Cb"/>
                             <constraint firstItem="N2k-ox-Gij" firstAttribute="top" secondItem="h4S-Th-QhD" secondAttribute="bottom" constant="8" id="eJm-fa-DL0"/>
+                            <constraint firstItem="51F-QX-Og9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="gEJ-yX-Uws"/>
+                            <constraint firstItem="51F-QX-Og9" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="iYl-UC-H9u"/>
                             <constraint firstAttribute="centerX" secondItem="QJO-dP-fU8" secondAttribute="centerX" id="iwf-jM-2GO"/>
                             <constraint firstAttribute="centerX" secondItem="LUB-Hf-5W5" secondAttribute="centerX" id="oYX-Uy-fgg"/>
                             <constraint firstItem="h4S-Th-QhD" firstAttribute="top" secondItem="QJO-dP-fU8" secondAttribute="bottom" constant="33" id="uru-MY-qbU"/>
@@ -631,7 +631,7 @@
                                                     <action selector="logOut:" destination="OK4-bf-Uij" eventType="touchUpInside" id="VPt-Yw-Nk8"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh2-ZS-mrf">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh2-ZS-mrf">
                                                 <rect key="frame" x="14" y="4" width="288" height="43"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

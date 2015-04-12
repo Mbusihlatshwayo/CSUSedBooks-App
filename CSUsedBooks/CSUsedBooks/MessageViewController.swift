@@ -47,7 +47,7 @@ class MessageViewController: UIViewController {
             message["FromUser"] = name
             message["Text"] = self.messageTextView.text
             message["ToUser"] = toUser
-            message["realFromUser"] = PFUser.currentUser().username
+            message["realFromUser"] = PFUser.currentUser()!.username
             message["GUID"] = GUID
             message["linkedId"] = linkedId
             message["realToUser"] = realtouser
@@ -55,17 +55,17 @@ class MessageViewController: UIViewController {
             
         } else {
             
-            message["FromUser"] = PFUser.currentUser().username
+            message["FromUser"] = PFUser.currentUser()!.username
             message["Text"] = self.messageTextView.text
             message["ToUser"] = toUser
-            message["realFromUser"] = PFUser.currentUser().username
+            message["realFromUser"] = PFUser.currentUser()!.username
             message["GUID"] = GUID
             message["linkedId"] = linkedId
             message["realToUser"] = realtouser
             message["readStatus"] = "no"
         }
         
-        message.saveInBackgroundWithBlock { (succes: Bool!, error: NSError!) -> Void in
+        message.saveInBackgroundWithBlock { (succes, error) -> Void in
             
             
             if succes == false {

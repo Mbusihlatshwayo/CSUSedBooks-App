@@ -37,7 +37,7 @@ class ReplyViewController: UIViewController {
         
         linkedQuerry.whereKey("GUID", equalTo: GUID)
         
-        var messages = linkedQuerry.findObjects() as [PFObject]
+        var messages = linkedQuerry.findObjects() as! [PFObject]
         
         for linkedMessage in messages { // message is of PFObject type
           
@@ -53,16 +53,16 @@ class ReplyViewController: UIViewController {
             message["Text"] = self.messageTextView.text
             message["ToUser"] = toUser
             message["realToUser"] = realFromUser
-            message["realFromUser"] = PFUser.currentUser().username
+            message["realFromUser"] = PFUser.currentUser()!.username
             message["GUID"] = GUID
             message["linkedId"] = linkedId
             message["readStatus"] = "no"
         } else {
             
-            message["FromUser"] = PFUser.currentUser().username
+            message["FromUser"] = PFUser.currentUser()!.username
             message["Text"] = self.messageTextView.text
             message["ToUser"] = toUser
-            message["realFromUser"] = PFUser.currentUser().username
+            message["realFromUser"] = PFUser.currentUser()!.username
             message["realToUser"] = realFromUser
             message["GUID"] = GUID
             message["linkedId"] = linkedId
@@ -71,7 +71,7 @@ class ReplyViewController: UIViewController {
         
 
         
-        message.saveInBackgroundWithBlock { (succes: Bool!, error: NSError!) -> Void in
+        message.saveInBackgroundWithBlock { (succes, error) -> Void in
             
             
             if succes == false {

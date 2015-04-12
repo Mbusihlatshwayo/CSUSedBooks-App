@@ -28,12 +28,12 @@ class MailViewController: UIViewController {
         
         messageQuery.whereKey("GUID", equalTo: GUID)
         
-        var messages = messageQuery.findObjects() as [PFObject]
+        var messages = messageQuery.findObjects() as! [PFObject]
         
         
         for object in messages { // message is of PFObject type
             
-            linkedId = object["linkedId"] as NSString
+            linkedId = object["linkedId"] as! NSString as String
             object["readStatus"] = "yes"
             object.saveInBackground()
         }
@@ -57,7 +57,7 @@ class MailViewController: UIViewController {
         
         messageQuery.whereKey("GUID", equalTo: GUID)
         
-        var messages = messageQuery.findObjects() as [PFObject]
+        var messages = messageQuery.findObjects() as! [PFObject]
         
         for message in messages { // message is of PFObject type
             

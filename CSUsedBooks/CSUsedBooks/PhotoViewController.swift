@@ -47,14 +47,14 @@ class PhotoViewController: UIViewController {
         
         toUser = usernameLabel.text!
         realtouser = realUsernames[selectedIndex]
-        imageFiles[selectedIndex].getDataInBackgroundWithBlock { (imageData: NSData!, error: NSError!) -> Void in
+        imageFiles[selectedIndex].getDataInBackgroundWithBlock { (imageData, error) -> Void in
             
             
             if (error == nil) {
                 
-                selectedPhoto = UIImage(data: imageData)!
+                selectedPhoto = UIImage(data: imageData!)!
                 
-                let image = UIImage(data: imageData)
+                let image = UIImage(data: imageData!)
                 
                 self.bookPhoto.image = image
                 

@@ -17,7 +17,7 @@ var unreadMessages = [String]()
 
 var tabBarBadge:Int = 0
 
-class HomeViewController: UIViewController, UITextFieldDelegate , UITableViewDelegate{
+class HomeViewController: UIViewController, UITextFieldDelegate , UITableViewDelegate {
 
     @IBAction func backToHomeViewController(segue:UIStoryboardSegue) {
         
@@ -37,10 +37,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate , UITableViewDel
         
         // update the badge if the user has mail in the mailbox unred
         var tabArray = self.tabBarController?.tabBar.items as NSArray!
-        var tabItem = tabArray.objectAtIndex(1) as UITabBarItem
+        var tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
         
         let currentInstallation = PFInstallation.currentInstallation()
-        currentInstallation.addUniqueObject(PFUser.currentUser().username, forKey: "channels")
+        currentInstallation.addUniqueObject(PFUser.currentUser()!.username!, forKey: "channels")
         currentInstallation.saveInBackground()
         
         FBRequestConnection.startForMeWithCompletionHandler({ (connection, result, error) -> Void in
@@ -50,16 +50,16 @@ class HomeViewController: UIViewController, UITextFieldDelegate , UITableViewDel
             
             if (resultdict != nil) {
                 // Extract a value from the dictionary
-                name = resultdict!["first_name"] as String
+                name = resultdict!["first_name"] as! String
                 
             }
             
         })
         
         var unreadQuery = PFQuery(className: "Message")
-        unreadQuery.whereKey("realToUser", equalTo: PFUser.currentUser().username)
+        unreadQuery.whereKey("realToUser", equalTo: PFUser.currentUser()!.username!)
         
-        unreadQuery.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        unreadQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             
             // set messages to read here
             
@@ -74,7 +74,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate , UITableViewDel
                         if (object["readStatus"] != nil) {
                             
                             var read = Bool()
-                            if (object["readStatus"] as String == "no") {
+                            if (object["readStatus"] as! String == "no") {
                                 
                                 unreadMessages.append("read")
                                 
@@ -100,7 +100,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate , UITableViewDel
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error.userInfo!)")
+                println("Error: \(error) \(error!.userInfo!)")
                 
             }
             

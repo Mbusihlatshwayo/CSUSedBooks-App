@@ -60,13 +60,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
         
         // update the badge if the user has mail in the mailbox unred
         var tabArray = self.tabBarController?.tabBar.items as NSArray!
-        var tabItem = tabArray.objectAtIndex(1) as UITabBarItem
+        var tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
         
         var unreadQuery = PFQuery(className: "Message")
         
-        unreadQuery.whereKey("realToUser", equalTo: PFUser.currentUser().username)
+        unreadQuery.whereKey("realToUser", equalTo: PFUser.currentUser()!.username!)
         
-        unreadQuery.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        unreadQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             
             // set messages to read here
             
@@ -81,7 +81,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
                         if (object["readStatus"] != nil) {
                             
                             var read = Bool()
-                            if (object["readStatus"] as String == "no") {
+                            if (object["readStatus"] as! String == "no") {
                                 
                                 unreadMessages.append("read")
                                 
@@ -106,7 +106,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error.userInfo!)")
+                println("Error: \(error) \(error!.userInfo!)")
                 
             }
             
@@ -114,7 +114,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
 
         if (isLinkedWithFB == true) {
             var FBSession = PFFacebookUtils.session()
-            var accessToken = FBSession.accessTokenData.accessToken
+            var accessToken = FBSession!.accessTokenData.accessToken
             let url = NSURL(string: "https://graph.facebook.com/me/picture?type=large&return_ssl_resources=1&access_token="+accessToken)
             
             let urlRequest = NSURLRequest(URL: url!)
@@ -128,7 +128,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
             }
         } else {
             
-            self.usernameLabel.text = PFUser.currentUser().username
+            self.usernameLabel.text = PFUser.currentUser()!.username
             
         }
         
@@ -147,10 +147,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
         
         if (isLinkedWithFB == false) {
         
-            profileQuery.whereKey("username", equalTo: PFUser.currentUser().username)
+            profileQuery.whereKey("username", equalTo: PFUser.currentUser()!.username!)
             profileQuery.findObjectsInBackgroundWithBlock {
             
-                (objects: [AnyObject]!, error: NSError!) -> Void in
+                (objects , error) -> Void in
             
                 if error == nil {
                 
@@ -164,15 +164,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
                         
                             if (object["imageFile"] != nil) {
 
-                                descriptions.append(object["Description"] as String)
+                                descriptions.append(object["Description"] as! String)
                         
-                                usernames.append(object["username"] as String)
+                                usernames.append(object["username"] as! String)
                         
-                                imageFiles.append(object["imageFile"] as PFFile)
+                                imageFiles.append(object["imageFile"] as! PFFile)
                                 
-                                bookGUIDs.append(object["GUID"] as String)
+                                bookGUIDs.append(object["GUID"] as! String)
                                 
-                                realUsernames.append(object["realUsername"] as String)
+                                realUsernames.append(object["realUsername"] as! String)
                                 
                             }
                         
@@ -185,7 +185,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
                 } else {
                 
                     // Log details of the failure
-                    println("Error: \(error) \(error.userInfo!)")
+                    println("Error: \(error) \(error!.userInfo!)")
                 
                 }
             
@@ -196,7 +196,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
             profileQuery.whereKey("username", equalTo: name)
             profileQuery.findObjectsInBackgroundWithBlock {
                 
-                (objects: [AnyObject]!, error: NSError!) -> Void in
+                (objects, error) -> Void in
                 
                 if error == nil {
                     
@@ -210,15 +210,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
                             
                             if (object["imageFile"] != nil) {
                                 
-                                descriptions.append(object["Description"] as String)
+                                descriptions.append(object["Description"] as! String)
                                 
-                                usernames.append(object["username"] as String)
+                                usernames.append(object["username"] as! String)
                                 
-                                imageFiles.append(object["imageFile"] as PFFile)
+                                imageFiles.append(object["imageFile"] as! PFFile)
                                 
-                                bookGUIDs.append(object["GUID"] as String)
+                                bookGUIDs.append(object["GUID"] as! String)
                                 
-                                realUsernames.append(object["realUsername"] as String)
+                                realUsernames.append(object["realUsername"] as! String)
                                 
                             }
                             
@@ -231,7 +231,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
                 } else {
                     
                     // Log details of the failure
-                    println("Error: \(error) \(error.userInfo!)")
+                    println("Error: \(error) \(error!.userInfo!)")
                     
                 }
                 
@@ -261,7 +261,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
             
             bookDeleteQuery.whereKey("GUID", equalTo: bookGUIDs[indexPath.row])
             
-            var books = bookDeleteQuery.findObjects() as [PFObject]
+            var books = bookDeleteQuery.findObjects() as! [PFObject]
             
             for book in books {
                 
@@ -300,16 +300,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: bookCell = self.profileTableView.dequeueReusableCellWithIdentifier("profileCell") as bookCell
+        var cell: bookCell = self.profileTableView.dequeueReusableCellWithIdentifier("profileCell") as! bookCell
         
         cell.profileBookDescription.text = descriptions[indexPath.row]
         cell.profileBookUsername.text = usernames[indexPath.row]
         
-        imageFiles[indexPath.row].getDataInBackgroundWithBlock { (imageData: NSData!, error: NSError!) -> Void in
+        imageFiles[indexPath.row].getDataInBackgroundWithBlock { (imageData, error) -> Void in
             
             if error == nil {
                 
-                var image = UIImage(data: imageData)!
+                var image = UIImage(data: imageData!)!
                 
                 cell.profileBookImage.image = image
                 

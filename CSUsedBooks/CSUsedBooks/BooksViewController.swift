@@ -11,7 +11,7 @@ import UIKit
 var pickedSubject = "Accounting"
 var bookGUID = ""
 
-class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate , UINavigationControllerDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate {
+class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate , UINavigationControllerDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate {
 
     
     @IBOutlet var bookImage: UIImageView!
@@ -86,19 +86,19 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
                 bookPosting["username"] = name
                 bookPosting["CourseSubject"] = pickedSubject
                 bookPosting["GUID"] = bookGUID
-                bookPosting["realUsername"] = PFUser.currentUser().username
+                bookPosting["realUsername"] = PFUser.currentUser()!.username
                 
             } else {
                
                 bookPosting["Description"] = bookDescription.text
-                bookPosting["username"] = PFUser.currentUser().username
+                bookPosting["username"] = PFUser.currentUser()!.username
                 bookPosting["CourseSubject"] = pickedSubject
                 bookPosting["GUID"] = bookGUID
-                bookPosting["realUsername"] = PFUser.currentUser().username
+                bookPosting["realUsername"] = PFUser.currentUser()!.username
                 
             }
             
-            bookPosting.saveInBackgroundWithBlock({ (success: Bool!, error: NSError!) -> Void in
+            bookPosting.saveInBackgroundWithBlock({ (success, error) -> Void in
             
                 
                 if (success == false) {
@@ -123,7 +123,7 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
                     
                     bookPosting["imageFile"] = imageFile
                     
-                    bookPosting.saveInBackgroundWithBlock({ (success: Bool!, error: NSError!) -> Void in
+                    bookPosting.saveInBackgroundWithBlock({ (success, error) -> Void in
                         
                         if (success == false) {
                             
@@ -168,7 +168,7 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
         
     }
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         self.dismissViewControllerAnimated(true, completion: nil)
         bookImage.image = image
         photoSelected = true
@@ -205,7 +205,7 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
         tapGesture = UITapGestureRecognizer(target: self, action: "tapTextView:")
         tapGesture.delegate = self
         self.view.addGestureRecognizer(tapGesture)
-        
+        bookDescription.delegate = self
         scrollView.delegate = self
         scrollView.addSubview(sellView)
         scrollView.contentSize = CGSizeMake(0,550)
@@ -227,12 +227,12 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
         
         // update the badge if the user has mail in the mailbox unred
         var tabArray = self.tabBarController?.tabBar.items as NSArray!
-        var tabItem = tabArray.objectAtIndex(1) as UITabBarItem
+        var tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
         
         var unreadQuery = PFQuery(className: "Message")
-        unreadQuery.whereKey("realToUser", equalTo: PFUser.currentUser().username)
+        unreadQuery.whereKey("realToUser", equalTo: PFUser.currentUser()!.username!)
         
-        unreadQuery.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        unreadQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             
             // set messages to read here
             
@@ -247,7 +247,7 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
                         if (object["readStatus"] != nil) {
                             
                             var read = Bool()
-                            if (object["readStatus"] as String == "no") {
+                            if (object["readStatus"] as! String == "no") {
                                 
                                 unreadMessages.append("read")
                                 
@@ -272,13 +272,15 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error.userInfo!)")
+                println("Error: \(error) \(error!.userInfo!)")
                 
             }
             
         }
 
     }
-
-    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+        bookDescription.resignFirstResponder()
+        return true
+    }
 }

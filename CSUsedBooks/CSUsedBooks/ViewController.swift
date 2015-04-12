@@ -8,7 +8,7 @@
 
 import UIKit
 
-var isLinkedWithFB: Bool = PFFacebookUtils.isLinkedWithUser(PFUser.currentUser())
+var isLinkedWithFB: Bool = false
 
 var name = ""
 
@@ -79,7 +79,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             
             error = "Please enter a username and password"
             
-        } else if (password.text.utf16Count < 6) {
+        } else if (count(password.text.utf16) < 6) {
             
             error = "Passwords must be more than 5 characters"
             
@@ -113,7 +113,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 
                 // sign the user in with parse
                 user.signUpInBackgroundWithBlock {
-                    (succeeded: Bool!, signUpError: NSError!) -> Void in
+                    (succeeded, signUpError) -> Void in
                 
                     self.activityIndicator.stopAnimating()
                     UIApplication.sharedApplication().endIgnoringInteractionEvents()
@@ -122,7 +122,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     
                         // lets the user recieve push notifications sent to their username
                         let currentInstallation = PFInstallation.currentInstallation()
-                        currentInstallation.addUniqueObject(PFUser.currentUser().username, forKey: "channels")
+                        currentInstallation.addUniqueObject(PFUser.currentUser()!.username!, forKey: "channels")
                         currentInstallation.saveInBackground()
                         
                         self.performSegueWithIdentifier("jumpToListingsTable", sender: self)
@@ -131,9 +131,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     } else {
                     
                         // creates the error
-                        if let errorString = signUpError.userInfo?["error"] as? NSString {
+                        if let errorString = signUpError!.userInfo?["error"] as? NSString {
                         
-                            error = errorString
+                            error = errorString as String
                         
                         } else {
                         
@@ -147,11 +147,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     
                 }
             } else {
-                
                 // user has an account log them in
                 PFUser.logInWithUsernameInBackground(username.text, password: password.text) {
                     
-                    (user: PFUser!, signUpError: NSError!) -> Void in
+                    (user, signUpError) -> Void in
                     
                     self.activityIndicator.stopAnimating()
                     UIApplication.sharedApplication().endIgnoringInteractionEvents()
@@ -164,7 +163,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                             
         
                                 let currentInstallation = PFInstallation.currentInstallation()
-                                currentInstallation.addUniqueObject(PFUser.currentUser().username, forKey: "channels")
+                                currentInstallation.addUniqueObject(PFUser.currentUser()!.username!, forKey: "channels")
                                 currentInstallation.saveInBackground()
                             
                         }
@@ -174,9 +173,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     } else {
                         
                         // create the error
-                        if let errorString = signUpError.userInfo?["error"] as? NSString {
+                        if let errorString = signUpError!.userInfo?["error"] as? NSString {
                             
-                            error = errorString
+                            error = errorString as String
                             
                         } else {
                             
@@ -202,8 +201,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         var user1 = PFUser()
         
-        PFFacebookUtils.logInWithPermissions(permissions, {
-            (user: PFUser!, error: NSError!) -> Void in
+        PFFacebookUtils.logInWithPermissions(permissions, block: {
+            (user, error) -> Void in
             
             if let user1 = user {
                 
@@ -212,10 +211,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     // user is new sign them up with facebook
                     
                     isLinkedWithFB = true
-                    
                     // user recieves notifications for their unique username
                     let currentInstallation = PFInstallation.currentInstallation()
-                    currentInstallation.addUniqueObject(PFUser.currentUser().username, forKey: "channels")
+                    currentInstallation.addUniqueObject(PFUser.currentUser()!.username!, forKey: "channels")
                     currentInstallation.saveInBackground()
                     
                     self.performSegueWithIdentifier("jumpToListingsTable", sender: self)
@@ -228,7 +226,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     
                     // user recieves notifications for their unique username
                     let currentInstallation = PFInstallation.currentInstallation()
-                    currentInstallation.addUniqueObject(PFUser.currentUser().username, forKey: "channels")
+                    currentInstallation.addUniqueObject(PFUser.currentUser()!.username!, forKey: "channels")
                     currentInstallation.saveInBackground()
                     
                     self.performSegueWithIdentifier("jumpToListingsTable", sender: self)
@@ -252,7 +250,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 
                 if (resultdict != nil) {
                     // Extract a value from the dictionary
-                    name = resultdict!["first_name"] as String
+                    name = resultdict!["first_name"] as! String
             
                 }
                 
@@ -263,13 +261,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        
-        self.view.endEditing(true)
-        
-    }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         username.resignFirstResponder()
         password.resignFirstResponder()
@@ -295,7 +292,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 
                 if (resultdict != nil) {
                     // Extract a value from the dictionary
-                    name = resultdict!["first_name"] as String
+                    name = resultdict!["first_name"] as! String
                     
                 }
                 
@@ -315,7 +312,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
          
             // user recieves notifications for their unique username
             let currentInstallation = PFInstallation.currentInstallation()
-            currentInstallation.addUniqueObject(PFUser.currentUser().username, forKey: "channels")
+            currentInstallation.addUniqueObject(PFUser.currentUser()!.username!, forKey: "channels")
             currentInstallation.saveInBackground()
         }
         
