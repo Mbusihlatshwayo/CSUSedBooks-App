@@ -69,19 +69,6 @@
                                     <action selector="signUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Z3g-Uo-Oc3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4S-Th-QhD">
-                                <rect key="frame" x="46" y="253" width="228" height="61"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="JAi-2D-nL2"/>
-                                    <constraint firstAttribute="width" constant="228" id="OrS-Tm-Kvp"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="facebook.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpWithFacebook:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PbE-bf-HHA"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already registered?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="1M1-00-tls">
                                 <rect key="frame" x="16" y="322" width="160" height="32"/>
                                 <constraints>
@@ -120,10 +107,8 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="0gk-0R-mTK" secondAttribute="centerX" id="1nB-Sl-dYj"/>
                             <constraint firstItem="rRm-6M-o7k" firstAttribute="leading" secondItem="1M1-00-tls" secondAttribute="trailing" constant="-37" id="33f-j6-B2R"/>
-                            <constraint firstItem="1M1-00-tls" firstAttribute="top" secondItem="h4S-Th-QhD" secondAttribute="bottom" constant="8" id="3N4-zy-Ma3"/>
+                            <constraint firstItem="N2k-ox-Gij" firstAttribute="baseline" secondItem="rRm-6M-o7k" secondAttribute="baseline" id="5nV-Ww-rzS"/>
                             <constraint firstItem="klN-mZ-kNg" firstAttribute="top" secondItem="0gk-0R-mTK" secondAttribute="bottom" constant="8" id="7vT-cd-uxC"/>
-                            <constraint firstItem="rRm-6M-o7k" firstAttribute="top" secondItem="h4S-Th-QhD" secondAttribute="bottom" constant="13" id="7zb-LC-T5l"/>
-                            <constraint firstAttribute="centerX" secondItem="h4S-Th-QhD" secondAttribute="centerX" id="C8H-BE-Cnk"/>
                             <constraint firstItem="QJO-dP-fU8" firstAttribute="top" secondItem="klN-mZ-kNg" secondAttribute="bottom" constant="8" id="CCZ-Gu-kwd"/>
                             <constraint firstItem="51F-QX-Og9" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Hfd-ya-ina"/>
                             <constraint firstAttribute="centerX" secondItem="klN-mZ-kNg" secondAttribute="centerX" id="Idw-yG-jZa"/>
@@ -131,13 +116,13 @@
                             <constraint firstAttribute="centerX" secondItem="rRm-6M-o7k" secondAttribute="centerX" id="XnO-mV-L2w"/>
                             <constraint firstItem="0gk-0R-mTK" firstAttribute="top" secondItem="LUB-Hf-5W5" secondAttribute="bottom" constant="8" id="cJs-h6-Yu6"/>
                             <constraint firstItem="LUB-Hf-5W5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="dZu-P8-QnB"/>
-                            <constraint firstItem="51F-QX-Og9" firstAttribute="centerX" secondItem="h4S-Th-QhD" secondAttribute="centerX" id="e1c-aH-9Cb"/>
-                            <constraint firstItem="N2k-ox-Gij" firstAttribute="top" secondItem="h4S-Th-QhD" secondAttribute="bottom" constant="8" id="eJm-fa-DL0"/>
                             <constraint firstItem="51F-QX-Og9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="gEJ-yX-Uws"/>
                             <constraint firstItem="51F-QX-Og9" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="iYl-UC-H9u"/>
                             <constraint firstAttribute="centerX" secondItem="QJO-dP-fU8" secondAttribute="centerX" id="iwf-jM-2GO"/>
                             <constraint firstAttribute="centerX" secondItem="LUB-Hf-5W5" secondAttribute="centerX" id="oYX-Uy-fgg"/>
-                            <constraint firstItem="h4S-Th-QhD" firstAttribute="top" secondItem="QJO-dP-fU8" secondAttribute="bottom" constant="33" id="uru-MY-qbU"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="1M1-00-tls" secondAttribute="bottom" constant="214" id="qpN-CQ-F4Z"/>
+                            <constraint firstItem="N2k-ox-Gij" firstAttribute="top" secondItem="1M1-00-tls" secondAttribute="top" id="riv-ey-JRq"/>
+                            <constraint firstItem="rRm-6M-o7k" firstAttribute="centerX" secondItem="51F-QX-Og9" secondAttribute="centerX" id="sD4-3U-nxD"/>
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -1237,7 +1222,6 @@
         <image name="Shop Tab Bar" width="25" height="25"/>
         <image name="book1.png" width="600" height="309"/>
         <image name="emptyman.png" width="600" height="568"/>
-        <image name="facebook.png" width="187" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5RI-wn-GZC"/>

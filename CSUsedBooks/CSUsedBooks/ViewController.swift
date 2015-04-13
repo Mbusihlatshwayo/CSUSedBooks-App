@@ -30,7 +30,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     var signUpActive = true
     
-    var permissions = ["public_profile"]
+    //var permissions = ["public_profile"]
     
     @IBOutlet var username: UITextField!
     
@@ -194,10 +194,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
-    
+    /* facebook app id is not valid fix app id then submit new version
     @IBAction func signUpWithFacebook(sender: AnyObject) {
         
         self.view.addSubview(self.activityIndicator)
+        
+        var permissions = ["public_profile", "user_friends"]
         
         var user1 = PFUser()
         
@@ -218,7 +220,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     
                     self.performSegueWithIdentifier("jumpToListingsTable", sender: self)
                     
-                } else {
+                } else if user1.isNew == false {
                     
                     // user logged in with facebook
                     
@@ -231,9 +233,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     
                     self.performSegueWithIdentifier("jumpToListingsTable", sender: self)
                     
+                } else {
+                    
+                    println("cancelled")
+                    
                 }
                 
             }
+           
+            println("\(user)")
+            println("\(error)")
             
         })
         
@@ -258,9 +267,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             
         }
         
-        
-    }
-    
+    }*/ 
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
@@ -283,6 +290,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         username.delegate = self
         password.delegate = self
         
+        println("view did load should log in")
+        println(PFUser.currentUser()?.username)
         if (isLinkedWithFB) {
             
             FBRequestConnection.startForMeWithCompletionHandler({ (connection, result, error) -> Void in
@@ -305,6 +314,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(true)
+        
+        println("appeared")
         
         if (PFUser.currentUser() != nil) {
         

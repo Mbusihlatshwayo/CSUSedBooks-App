@@ -29,8 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let currentInstallation = PFInstallation.currentInstallation()
         currentInstallation.saveInBackground()
 
-        
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
@@ -71,19 +70,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 currentInstallation.saveEventually()
         }
         
+        FBSDKAppEvents.activateApp()
+        FBAppCall.handleDidBecomeActiveWithSession(PFFacebookUtils.session())
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(application: UIApplication,
-        openURL url: NSURL,
-        sourceApplication: String?,
-        annotation: AnyObject?) -> Bool {
-            return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
-                withSession:PFFacebookUtils.session())
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        
+        return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
+            withSession:PFFacebookUtils.session())
     }
     
+  
 }
 

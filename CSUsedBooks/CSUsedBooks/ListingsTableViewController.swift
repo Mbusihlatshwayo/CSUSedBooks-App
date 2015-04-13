@@ -6,8 +6,16 @@
 //  Copyright (c) 2015 Mbusi Hlatshwayo. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class ListingsTableViewController: UITableViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        println(PFUser.currentUser())
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }

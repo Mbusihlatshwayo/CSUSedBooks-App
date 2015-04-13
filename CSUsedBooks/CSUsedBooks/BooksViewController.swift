@@ -279,7 +279,7 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
         }
 
     }
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
         bookDescription.resignFirstResponder()
         return true
     }
