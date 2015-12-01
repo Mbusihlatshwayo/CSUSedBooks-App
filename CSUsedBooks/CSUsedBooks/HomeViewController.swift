@@ -100,7 +100,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate , UITableViewDel
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error!.userInfo!)")
+                print("Error: \(error) \(error!.userInfo)")
                 
             }
             

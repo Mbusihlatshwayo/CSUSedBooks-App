@@ -24,11 +24,11 @@ class MailViewController: UIViewController {
         toUser = fromUser
         realFromUser = realFromUsernames[messageIndex]
         
-        var messageQuery = PFQuery(className: "Message")
+        let messageQuery = PFQuery(className: "Message")
         
         messageQuery.whereKey("GUID", equalTo: GUID)
         
-        var messages = messageQuery.findObjects() as! [PFObject]
+        let messages = messageQuery.findObjects() as! [PFObject]
         
         
         for object in messages { // message is of PFObject type
@@ -53,11 +53,11 @@ class MailViewController: UIViewController {
     
     @IBAction func deleteMessage(sender: AnyObject) {
         
-        var messageQuery = PFQuery(className: "Message")
+        let messageQuery = PFQuery(className: "Message")
         
         messageQuery.whereKey("GUID", equalTo: GUID)
         
-        var messages = messageQuery.findObjects() as! [PFObject]
+        let messages = messageQuery.findObjects() as! [PFObject]
         
         for message in messages { // message is of PFObject type
             

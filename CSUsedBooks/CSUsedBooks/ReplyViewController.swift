@@ -12,7 +12,7 @@ class ReplyViewController: UIViewController {
 
     func displayAlert(title: String, error: String) {
         
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         
@@ -33,11 +33,11 @@ class ReplyViewController: UIViewController {
         
         GUID = NSUUID().UUIDString
     
-        var linkedQuerry = PFQuery(className: "Message")
+        let linkedQuerry = PFQuery(className: "Message")
         
         linkedQuerry.whereKey("GUID", equalTo: GUID)
         
-        var messages = linkedQuerry.findObjects() as! [PFObject]
+        let messages = linkedQuerry.findObjects() as! [PFObject]
         
         for linkedMessage in messages { // message is of PFObject type
           
@@ -46,7 +46,7 @@ class ReplyViewController: UIViewController {
         }
         
         
-        var message = PFObject(className: "Message")
+        let message = PFObject(className: "Message")
         if (isLinkedWithFB) {
             
             message["FromUser"] = name
@@ -85,7 +85,7 @@ class ReplyViewController: UIViewController {
                 
                 self.displayAlert("Your message was sent!", error: "Succesful Send")
                 
-                var push = PFPush()
+                let push = PFPush()
                 
                 let data = [
                     "alert" : "You have a new message check your mailbox!",

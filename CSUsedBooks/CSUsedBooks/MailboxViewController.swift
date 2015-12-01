@@ -67,7 +67,7 @@ class MailboxViewController: UIViewController , UITableViewDelegate{
                 } else {
                     
                     // Log details of the failure
-                    println("Error: \(error) \(error!.userInfo!)")
+                    print("Error: \(error) \(error!.userInfo)")
                     
                 }
                 
@@ -103,7 +103,7 @@ class MailboxViewController: UIViewController , UITableViewDelegate{
                 } else {
                     
                     // Log details of the failure
-                    println("Error: \(error) \(error!.userInfo!)")
+                    print("Error: \(error) \(error!.userInfo)")
                     
                 }
                 
@@ -144,7 +144,7 @@ class MailboxViewController: UIViewController , UITableViewDelegate{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:MessageCell = self.messageTableView.dequeueReusableCellWithIdentifier("messageCell") as! MessageCell
+        let cell:MessageCell = self.messageTableView.dequeueReusableCellWithIdentifier("messageCell") as! MessageCell
         
         cell.fromUsername.text = fromUsernames[indexPath.row]
         cell.messageText.text = messages[indexPath.row]

@@ -18,9 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Parse.setApplicationId("uuC9oPC9MD6alY9NpeNgNgOVLaENeFpuoLn4WKQL", clientKey: "MBbFbzabqCl078T6MROvUsHOExRDVyvXsd8KDgtP")
             PFFacebookUtils.initializeFacebook()
         
-        let userNotificationTypes = (UIUserNotificationType.Alert |
-            UIUserNotificationType.Badge |
-            UIUserNotificationType.Sound);
+        let userNotificationTypes: UIUserNotificationType = ([UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]);
         
         let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
         application.registerUserNotificationSettings(settings)
@@ -79,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         
         return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
             withSession:PFFacebookUtils.session())

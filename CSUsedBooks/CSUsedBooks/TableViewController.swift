@@ -89,7 +89,7 @@ class TableViewController: UIViewController, UITableViewDelegate {
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error!.userInfo!)")
+                print("Error: \(error) \(error!.userInfo)")
                 
             }
             
@@ -144,7 +144,7 @@ class TableViewController: UIViewController, UITableViewDelegate {
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error!.userInfo!)")
+                print("Error: \(error) \(error!.userInfo)")
                 
             }
         }
@@ -179,7 +179,7 @@ class TableViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: bookCell = self.myTableView.dequeueReusableCellWithIdentifier("prototype") as! bookCell
+        let cell: bookCell = self.myTableView.dequeueReusableCellWithIdentifier("prototype") as! bookCell
         
         cell.allBooksDescription.text = descriptions[indexPath.row]
         cell.allBooksUsername.text = usernames[indexPath.row]
@@ -188,7 +188,7 @@ class TableViewController: UIViewController, UITableViewDelegate {
             
             if error == nil {
                 
-                var image = UIImage(data: imageData!)!
+                let image = UIImage(data: imageData!)!
                 
                 cell.allBooksImage.image = image
                 

@@ -12,7 +12,7 @@ class MessageViewController: UIViewController {
 
     func displayAlert(title: String, error: String) {
         
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         
@@ -40,7 +40,7 @@ class MessageViewController: UIViewController {
         
         GUID = NSUUID().UUIDString
         
-        var message = PFObject(className: "Message")
+        let message = PFObject(className: "Message")
         
         if (isLinkedWithFB) {
             
@@ -80,7 +80,7 @@ class MessageViewController: UIViewController {
                 
                 self.displayAlert("Your message was sent!", error: "Succesful Send")
                 
-                var push = PFPush()
+                let push = PFPush()
                 
                                 // Send a notification to all devices subscribed to the "Giants" channel.
                 

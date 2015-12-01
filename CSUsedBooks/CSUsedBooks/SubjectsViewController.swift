@@ -92,7 +92,7 @@ class SubjectsViewController: UIViewController {
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error!.userInfo!)")
+                print("Error: \(error) \(error!.userInfo)")
                 
             }
             
@@ -135,7 +135,7 @@ class SubjectsViewController: UIViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: bookCell = tableView.dequeueReusableCellWithIdentifier("booksCells") as! bookCell
+        let cell: bookCell = tableView.dequeueReusableCellWithIdentifier("booksCells") as! bookCell
         
         cell.subjectBookDescription.text = descriptions[indexPath.row]
         cell.subjectBookPosterUsername.text = usernames[indexPath.row]

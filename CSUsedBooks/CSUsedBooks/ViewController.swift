@@ -19,7 +19,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     // displays the error for log in
     func displayAlert(title: String, error: String) {
         
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         
@@ -79,7 +79,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             
             error = "Please enter a username and password"
             
-        } else if (count(password.text.utf16) < 6) {
+        } else if (password.text.utf16.count < 6) {
             
             error = "Passwords must be more than 5 characters"
             
@@ -131,7 +131,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     } else {
                     
                         // creates the error
-                        if let errorString = signUpError!.userInfo?["error"] as? NSString {
+                        if let errorString = signUpError!.userInfo["error"] as? NSString {
                         
                             error = errorString as String
                         
@@ -269,7 +269,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }*/ 
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
 
@@ -290,14 +290,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         username.delegate = self
         password.delegate = self
         
-        println("view did load should log in")
-        println(PFUser.currentUser()?.username)
+        print("view did load should log in")
+        print(PFUser.currentUser()?.username)
         if (isLinkedWithFB) {
             
             FBRequestConnection.startForMeWithCompletionHandler({ (connection, result, error) -> Void in
                 
                                // Cast result to optional dictionary type
-                var resultdict = result as? NSDictionary
+                let resultdict = result as? NSDictionary
                 
                 if (resultdict != nil) {
                     // Extract a value from the dictionary
@@ -315,7 +315,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         super.viewDidAppear(true)
         
-        println("appeared")
+        print("appeared")
         
         if (PFUser.currentUser() != nil) {
         

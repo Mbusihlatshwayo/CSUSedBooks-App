@@ -30,7 +30,7 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
     
     @IBAction func pickImage(sender: AnyObject) {
         
-        var image = UIImagePickerController()
+        let image = UIImagePickerController()
         image.delegate = self
         image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         image.allowsEditing = false
@@ -160,7 +160,7 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
     
     func displayAlert(title: String, error: String) {
         
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         
@@ -272,7 +272,7 @@ class BooksViewController: UIViewController , UIPickerViewDelegate, UIPickerView
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error!.userInfo!)")
+                print("Error: \(error) \(error!.userInfo)")
                 
             }
             

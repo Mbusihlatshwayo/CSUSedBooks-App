@@ -106,7 +106,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
             } else {
                 
                 // Log details of the failure
-                println("Error: \(error) \(error!.userInfo!)")
+                print("Error: \(error) \(error!.userInfo)")
                 
             }
             
@@ -185,7 +185,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
                 } else {
                 
                     // Log details of the failure
-                    println("Error: \(error) \(error!.userInfo!)")
+                    print("Error: \(error) \(error!.userInfo)")
                 
                 }
             
@@ -231,7 +231,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
                 } else {
                     
                     // Log details of the failure
-                    println("Error: \(error) \(error!.userInfo!)")
+                    print("Error: \(error) \(error!.userInfo)")
                     
                 }
                 
@@ -257,11 +257,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
             // delete the book from the array and the database
             
             
-            var bookDeleteQuery = PFQuery(className: "BookPosting")
+            let bookDeleteQuery = PFQuery(className: "BookPosting")
             
             bookDeleteQuery.whereKey("GUID", equalTo: bookGUIDs[indexPath.row])
             
-            var books = bookDeleteQuery.findObjects() as! [PFObject]
+            let books = bookDeleteQuery.findObjects() as! [PFObject]
             
             for book in books {
                 
@@ -300,7 +300,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: bookCell = self.profileTableView.dequeueReusableCellWithIdentifier("profileCell") as! bookCell
+        let cell: bookCell = self.profileTableView.dequeueReusableCellWithIdentifier("profileCell") as! bookCell
         
         cell.profileBookDescription.text = descriptions[indexPath.row]
         cell.profileBookUsername.text = usernames[indexPath.row]
@@ -309,7 +309,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIScrollView
             
             if error == nil {
                 
-                var image = UIImage(data: imageData!)!
+                let image = UIImage(data: imageData!)!
                 
                 cell.profileBookImage.image = image
                 
